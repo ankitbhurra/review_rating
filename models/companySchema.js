@@ -1,35 +1,34 @@
-const mongoose = require ("mongoose");
+const mongoose = require("mongoose");
 
-const companySchema = mongoose.Schema ({
-    //user id : { type : mongoose.types.objectid} , refrencing ke liye liyaa hai
+const companySchema = mongoose.Schema({
+  //user id : { type : mongoose.types.objectid} , refrencing ke liye liyaa hai
 
-    companyName : {
-        type : String ,
-        Require : true ,
-    },
+  companyName: {
+    type: String,
+    Require: true,
+  },
 
-    comapanyCity : {
-        type: String,
-        require : true,
-    },
+  companyCity: {
+    type: String,
+    require: true,
+  },
 
-    companyLocation : {
-        type : String,
-        require : true,
-    },
+  companyLocation: {
+    type: String,
+    require: true,
+  },
 
-    companyPic: {
-type : String,
-require : true,
-    },
+  companyPic: {
+    type: String,
+    required: true,
+  },
 
-    isActive: {
-       type : String,
-       default : true,
-    },
-
+  isActive: {
+    type: String,
+    default: true,
+  },
 });
 // user of create at and update at
-companySchema.set("timestamps" , true);
+companySchema.set("timestamps", true);
 
-module.exports=mongoose.model("company" , companySchema);
+module.exports = mongoose.model("company", companySchema);

@@ -1,40 +1,39 @@
-const mongoose = require ("mongoose");
+const mongoose = require("mongoose");
 
-const companyReviewSchema = mongoose.Schema ({
-    //user id : { type : mongoose.types.objectid} , refrencing ke liye liyaa hai
+const companyReviewSchema = mongoose.Schema({
+  //user id : { type : mongoose.types.objectid} , refrencing ke liye liyaa hai
 
-    companyReviewSubject : {
-        type : String ,
-        Require : true , 
-    },
+  companyReviewSubject: {
+    type: String,
+    Require: true,
+  },
 
-    companyReview : {
-        type : Number,
-        require : true ,
-    },
+  companyReview: {
+    type: String,
+    require: true,
+  },
 
-    companyReviewRating : {
-        type : String ,
-        require : true,
-    },
+  companyReviewRating: {
+    type: Number,
+    require: true,
+  },
 
-    userID : {
-        type : mongoose.Types.ObjectId ,
-        ref : 'user',
-        require : true,
-    },
-    companyID : {
-        type: mongoose.Types.ObjectId,
-        ref: "company",
-        require : true,
-    },
-    isActive: {
-       type : String,
-       default : true,
-    },
-
+  userID: {
+    type: mongoose.Types.ObjectId,
+    ref: "user",
+    require: true,
+  },
+  companyID: {
+    type: mongoose.Types.ObjectId,
+    ref: "company",
+    require: true,
+  },
+  isActive: {
+    type: String,
+    default: true,
+  },
 });
 // user of create at and update at
-companyReviewSchema.set("timestamps" , true);
+companyReviewSchema.set("timestamps", true);
 
-module.exports=mongoose.model("review" , companyReviewSchema);
+module.exports = mongoose.model("review", companyReviewSchema);

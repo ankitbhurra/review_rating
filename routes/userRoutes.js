@@ -1,16 +1,13 @@
-const express = require("express");
-const userController = require("../controllers/userController");
-
+const express = require ("express");
 const userRouter = express.Router();
 
-userRouter.post("/user/create",
-    userController.createUser
-);
+const userController = require("../controllers/userController");
+const { userUpload } = require("../middlewares/userImageStored");
+const { registerUserValidation,userLoginValidation,} = require("../validation/user/userDataValidation");
 
-userRouter.post(
-    "/user/login",
-    userController.userLogIn
-);
+userRouter.post("/reset", userController.sendUserPasswordEmail);
+userRouter.post("/login", userLoginValidation, userController.userLogIn);
+userRouter.post("/resetpassword/:id/:token", userController.resetPassword);
+userRouter.post("/create",userUpload.single("profilePic"),registerUserValidation,userController.createUser);
 
-
-module.exports = userRouter 
+module.exports = userRouter;
